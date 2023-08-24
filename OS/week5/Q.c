@@ -9,7 +9,7 @@ int evenarr[50], oddarr[50];
 void *Even(void *threadid) {
     int i, n;
     je = 0;
-    n = (int)threadid;
+    n = *((int *)threadid);
     for (i = 1; i <= n; i++) {
         if (i % 2 == 0) {
             evenarr[je] = i;
@@ -22,7 +22,7 @@ void *Even(void *threadid) {
 void *Odd(void *threadid) {
     int i, n;
     jo = 0;
-    n = (int)threadid;
+    n = *((int *)threadid);
     for (i = 1; i <= n; i++) {
         if (i % 2 != 0) {
             oddarr[jo] = i;
@@ -34,7 +34,7 @@ void *Odd(void *threadid) {
 
 void *SumN(void *threadid) {
     int i, n;
-    n = (int)threadid;
+    n = *((int *)threadid);
     for (i = 1; i <= n; i++) {
         sumn = sumn + i;
     }
@@ -47,9 +47,9 @@ int main() {
     printf("Enter a number: ");
     scanf("%d", &t);
     
-    pthread_create(&threads[0], NULL, Even, (void *)t);
-    pthread_create(&threads[1], NULL, Odd, (void *)t);
-    pthread_create(&threads[2], NULL, SumN, (void *)t);
+    pthread_create(&threads[0], NULL, Even, (void *)&t);
+    pthread_create(&threads[1], NULL, Odd, (void *)&t);
+    pthread_create(&threads[2], NULL, SumN, (void *)&t);
 
     for (i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
@@ -72,3 +72,4 @@ int main() {
     pthread_exit(NULL);
 }
 // ! copy frm someone
+//dereferencing and passing addresses to the thread functions fixes the issue
