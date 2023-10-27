@@ -13,7 +13,7 @@ void first_fit() {
             if (memory_blocks[j] >= processes[i]) {
                 allocation[i] = j;
                 memory_blocks[j] -= processes[i];
-                break;
+                break;  // Break the loop after allocating to the first suitable block
             }
         }
     }
@@ -23,6 +23,7 @@ void first_fit() {
         printf("Process %d allocated to Block %d\n", i + 1, allocation[i] + 1);
     }
 }
+    
 
 void best_fit() {
     for (int i = 0; i < MAX_PROCESSES; ++i) {
