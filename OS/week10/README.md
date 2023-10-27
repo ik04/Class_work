@@ -1,34 +1,31 @@
-## Sample input:
+## Sample Input and Output:
 
 ```bash
-Enter number of processes: 3
-Enter number of resources: 3
+Enter the number of processes and resources: 5 3
+Enter allocation of resource of all processes (5 x 3 matrix): 
+0   1   0
+2   0   0
+3   0   2
+2   1   1
+0   0   2
+Enter the maximum resource process required (5 x 3 matrix): 
+7   5   3
+3   2   2
+9   0   2
+2   2   2
+4   3   3
+Enter the available resource: 3 3 2
 
-Enter allocation of each process:
-alloc[1][1]: 0
-alloc[1][2]: 1
-alloc[1][3]: 0
-alloc[2][1]: 2
-alloc[2][2]: 0
-alloc[2][3]: 0
-alloc[3][1]: 3
-alloc[3][2]: 0
-alloc[3][3]: 2
+Need resources matrix are:
+7       4       3
+1       2       2
+6       0       0
+0       1       1
+4       3       1
 
-Enter maximum of each problem:
-max[1][1]: 7
-max[1][2]: 5
-max[1][3]: 3
-max[2][1]: 3
-max[2][2]: 2
-max[2][3]: 2
-max[3][1]: 9
-max[3][2]: 0
-max[3][3]: 2
-
-Enter the available resources:
-avail[1]: 3
-avail[2]: 3
-avail[3]: 2
+Available resource after completion:
+10      5       7
+Safe sequence are:
+P1      P3      P4      P0      P2      %                                                                           
 
 ```
