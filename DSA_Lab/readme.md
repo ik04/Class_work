@@ -1,2 +1,3 @@
-Codes dont handle exceptions to keep them short.
-So dont fuck around, enter integers only.
+## Disclaimer:
+
+Weeks 12-15 have been uploaded in desperation and may be incorrect, please take it with a grain of salt.
